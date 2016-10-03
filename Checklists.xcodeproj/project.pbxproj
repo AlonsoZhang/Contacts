@@ -24,6 +24,8 @@
 		E27A8C551C570BE800567265 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27A8C541C570BE800567265 /* ContactsUI.framework */; };
 		E27A8C5A1C57602400567265 /* ItemAddContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27A8C591C57602400567265 /* ItemAddContactsViewController.m */; };
 		E2821BFE1C740EA000108656 /* Contacts.m in Sources */ = {isa = PBXBuildFile; fileRef = E2821BFD1C740EA000108656 /* Contacts.m */; };
+		E29304D31C801D1700C501D1 /* RZTouchID.m in Sources */ = {isa = PBXBuildFile; fileRef = E29304D21C801D1700C501D1 /* RZTouchID.m */; };
+		E29304D91C801D3E00C501D1 /* RZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29304D81C801D3E00C501D1 /* RZViewController.m */; };
 		E2A474E31B16C22500AE5AED /* ChecklistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A474E21B16C22500AE5AED /* ChecklistItem.m */; };
 		E2B4B3701C85359F003F9BD4 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B4B36F1C85359F003F9BD4 /* SettingViewController.m */; };
 		E2B8B7781C84612500152EF1 /* main.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2B8B7771C84612500152EF1 /* main.plist */; };
@@ -70,6 +72,10 @@
 		E27A8C591C57602400567265 /* ItemAddContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemAddContactsViewController.m; sourceTree = "<group>"; };
 		E2821BFC1C740EA000108656 /* Contacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contacts.h; sourceTree = "<group>"; };
 		E2821BFD1C740EA000108656 /* Contacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contacts.m; sourceTree = "<group>"; };
+		E29304D11C801D1700C501D1 /* RZTouchID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZTouchID.h; sourceTree = "<group>"; };
+		E29304D21C801D1700C501D1 /* RZTouchID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZTouchID.m; sourceTree = "<group>"; };
+		E29304D71C801D3E00C501D1 /* RZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZViewController.h; sourceTree = "<group>"; };
+		E29304D81C801D3E00C501D1 /* RZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZViewController.m; sourceTree = "<group>"; };
 		E2A474E11B16C22500AE5AED /* ChecklistItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecklistItem.h; sourceTree = "<group>"; };
 		E2A474E21B16C22500AE5AED /* ChecklistItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChecklistItem.m; sourceTree = "<group>"; };
 		E2B4B36E1C85359F003F9BD4 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -118,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				E2DEE81C1C54E38B00769A5D /* SwiftNotice.swift */,
+				E29304D11C801D1700C501D1 /* RZTouchID.h */,
+				E29304D21C801D1700C501D1 /* RZTouchID.m */,
 				E23772B31C7DD28400681DEA /* PXAlertView.h */,
 				E23772B41C7DD28400681DEA /* PXAlertView.m */,
 				E2E2E8A31C55CBE600F2BEF9 /* NirKxMenu.h */,
@@ -164,6 +172,8 @@
 				E2FED6F11B141CB3002FD79F /* Main.storyboard */,
 				E2FED6EB1B141CB3002FD79F /* AppDelegate.h */,
 				E2FED6EC1B141CB3002FD79F /* AppDelegate.m */,
+				E29304D71C801D3E00C501D1 /* RZViewController.h */,
+				E29304D81C801D3E00C501D1 /* RZViewController.m */,
 				E2312CA41B2167F100497728 /* AllListsViewController.h */,
 				E2312CA51B2167F100497728 /* AllListsViewController.m */,
 				E2312CAD1B21885F00497728 /* ListDetailViewController.h */,
@@ -241,14 +251,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Alonso Zhang";
 				TargetAttributes = {
 					E2FED6E31B141CB3002FD79F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 8LP5KW6GHL;
-						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 29G3VK6224;
 					};
 				};
 			};
@@ -296,8 +304,10 @@
 				E21F8F0C1C4E218D004E91CF /* CHCSVParser.m in Sources */,
 				E26CB0611B26C2F5003F910C /* IconPickerViewController.m in Sources */,
 				E23772B51C7DD28400681DEA /* PXAlertView.m in Sources */,
+				E29304D91C801D3E00C501D1 /* RZViewController.m in Sources */,
 				E2DEE81D1C54E38B00769A5D /* SwiftNotice.swift in Sources */,
 				E2FED6ED1B141CB3002FD79F /* AppDelegate.m in Sources */,
+				E29304D31C801D1700C501D1 /* RZTouchID.m in Sources */,
 				E2E2E8A51C55CBE600F2BEF9 /* NirKxMenu.m in Sources */,
 				E2F83C931C7ED3FB00EDEA96 /* aboutViewController.m in Sources */,
 				E273407A1B258A8A0055DA75 /* DataModel.m in Sources */,
@@ -349,14 +359,12 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wistron Corporation";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -383,7 +391,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_MODULE_NAME = Checklists;
 				PROVISIONING_PROFILE = "712331d7-ed80-4ea9-aa39-f2257e8106d4";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos9.1;
 			};
 			name = Debug;
 		};
@@ -400,13 +408,11 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Wistron Corporation";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -426,8 +432,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_MODULE_NAME = Checklists;
 				PROVISIONING_PROFILE = "712331d7-ed80-4ea9-aa39-f2257e8106d4";
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SDKROOT = iphoneos9.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -435,47 +440,43 @@
 		E2FED7081B141CB3002FD79F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Wistron Corporation";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wistron Corporation";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 8LP5KW6GHL;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Checklists/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zhangwu.space.M5Contact;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wistron.m5sw.M5Contact;
 				PRODUCT_MODULE_NAME = Checklists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "712331d7-ed80-4ea9-aa39-f2257e8106d4";
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Checklists/Checklists-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		E2FED7091B141CB3002FD79F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Wistron Corporation";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wistron Corporation";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 8LP5KW6GHL;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Checklists/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zhangwu.space.M5Contact;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wistron.m5sw.M5Contact;
 				PRODUCT_MODULE_NAME = Checklists;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "712331d7-ed80-4ea9-aa39-f2257e8106d4";
 				SKIP_INSTALL = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Checklists/Checklists-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

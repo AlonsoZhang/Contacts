@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-//@class RZTouchID;
+@class RZTouchID;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
-//@property (strong, nonatomic) RZTouchID *touchIDService;
-//+ (RZTouchID *)sharedTouchIDInstance;
+@property (strong, nonatomic) RZTouchID *touchIDService;
++ (RZTouchID *)sharedTouchIDInstance;
 @end

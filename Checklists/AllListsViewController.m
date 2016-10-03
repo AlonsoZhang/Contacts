@@ -13,9 +13,9 @@
 #import "DataModel.h"
 #import "Checklists-swift.h"
 #import "NirKxMenu.h"
-//#import "RZTouchID.h"
+#import "RZTouchID.h"
 #import "AppDelegate.h"
-//#import "RZViewController.h"
+#import "RZViewController.h"
 
 
 @interface AllListsViewController ()
@@ -880,23 +880,23 @@
 }
 
 - (IBAction)disableTouchID:(UIBarButtonItem *)sender {
-//    [PXAlertView showAlertWithTitle:@"是否關閉 Touch ID"
-//                            message:@"（可在登錄界面重新開啟） "
-//                        cancelTitle:@"否"
-//                         otherTitle:@"是"
-//                         completion:^(BOOL cancelled) {
-//                             if (cancelled) {
-//                                 NSLog(@"不关闭");
-//                             } else {
-//                                 [self noticeTop:@"已關閉 Touch ID" autoClear:YES];
-//                                 NSString *loggedInUser = [[NSUserDefaults standardUserDefaults] objectForKey:kRZTouchIdLoggedInUser];
-//                                 [[AppDelegate sharedTouchIDInstance] deletePasswordWithIdentifier:loggedInUser completion:^(NSString *password, NSError *error) {
-//                                     self.navigationItem.leftBarButtonItem = nil;
-//                                     //self.disableTouchIDButton.hidden = YES;
-//                                     self.touchIDLoginDisabled = YES;
-//                                 }];
-//                             }
-//                         }];
+    [PXAlertView showAlertWithTitle:@"是否關閉 Touch ID"
+                            message:@"（可在登錄界面重新開啟） "
+                        cancelTitle:@"否"
+                         otherTitle:@"是"
+                         completion:^(BOOL cancelled) {
+                             if (cancelled) {
+                                 NSLog(@"不关闭");
+                             } else {
+                                 [self noticeTop:@"已關閉 Touch ID" autoClear:YES];
+                                 NSString *loggedInUser = [[NSUserDefaults standardUserDefaults] objectForKey:kRZTouchIdLoggedInUser];
+                                 [[AppDelegate sharedTouchIDInstance] deletePasswordWithIdentifier:loggedInUser completion:^(NSString *password, NSError *error) {
+                                     self.navigationItem.leftBarButtonItem = nil;
+                                     //self.disableTouchIDButton.hidden = YES;
+                                     self.touchIDLoginDisabled = YES;
+                                 }];
+                             }
+                         }];
 }
 
 - (void)offContacts{
