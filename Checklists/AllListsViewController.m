@@ -69,11 +69,11 @@
         NSLog(@"文件已创立");
     }
 
-//    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-//    refreshControl.tintColor = [UIColor grayColor];
-//    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉更新数据"];
-//    [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-//    [self setRefreshControl:refreshControl];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.tintColor = [UIColor grayColor];
+    refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉更新数据"];
+    [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self setRefreshControl:refreshControl];
 }
 
 - (void)refresh{
