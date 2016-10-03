@@ -193,20 +193,22 @@ Contacts * contact;
 {
     if (indexPathe.section == 2){
         if (indexPathe.row == 0) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",self.itemToEdit.phonenumber]]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",self.itemToEdit.phonenumber] ]options:@{UIApplicationOpenURLOptionUniversalLinksOnly : @YES} completionHandler:nil];
+            //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",self.itemToEdit.phonenumber]]];
+            NSLog(@"phonenumber");
         }
         if (indexPathe.row == 1){
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",self.itemToEdit.twphonenumber]]];
+            //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",self.itemToEdit.twphonenumber]]];
         }
         if (indexPathe.row == 2){
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",self.itemToEdit.usaphonenumber]]];
+            //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",self.itemToEdit.usaphonenumber]]];
         }
         if (indexPathe.row == 3){
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",self.itemToEdit.otherphonenumber]]];
+            //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",self.itemToEdit.otherphonenumber]]];
         }
     }
     if (indexPathe.section == 3){
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",self.itemToEdit.shortnumber]]];
+        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",self.itemToEdit.shortnumber]]];
     }
     return nil;
 }

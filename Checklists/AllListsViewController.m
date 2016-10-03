@@ -183,20 +183,16 @@
     NSURL *fileURL =[NSURL URLWithString :[NSString stringWithFormat:@"file://%@",filePath]];
     actual = [NSArray arrayWithContentsOfCSVURL:fileURL];
     allname = @"";
+    NSString *sortlabelPlistPath = [[NSBundle mainBundle] pathForResource:@"sortlabel" ofType:@"plist"];
+    NSArray *sortlabelarray = [[NSArray alloc] initWithContentsOfFile:sortlabelPlistPath];
     
     for (int i = 0; i < [actual count]; i++) {
         NSString* departmentname = actual[i][1];
         //因为表格内 function 信息有误，确保正确的话可以重写一个通用方法。
-        [self showdepartment:@"智能裝置事業處" rangekeyword:@"500000" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"M5" name:departmentname];
-        [self showdepartment:@"流程暨專案經理處" rangekeyword:@"50C" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"OPM" name:departmentname];
-        [self showdepartment:@"經營分析室" rangekeyword:@"500B00" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"BA" name:departmentname];
-        [self showdepartment:@"業務管理處" rangekeyword:@"50A" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"AM" name:departmentname];
-        [self showdepartment:@"產品經理處" rangekeyword:@"50P" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"EPM" name:departmentname];
-        [self showdepartment:@"產品設計處" rangekeyword:@"50D" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"PD" name:departmentname];
-        [self showdepartment:@"硬體開發設計處" rangekeyword:@"50E" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"EE" name:departmentname];
-        [self showdepartment:@"無線技術研發處" rangekeyword:@"50R" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"RF" name:departmentname];
-        [self showdepartment:@"軟體研發處" rangekeyword:@"50S" withoutkeyword:@"50SW" withoutanother:@"nil" picture:@"SW" name:departmentname];
-        [self showdepartment:@"智能裝置軟件測試部" rangekeyword:@"50SW" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"WGT" name:departmentname];
+        for (int departmentitem = 0; departmentitem < [sortlabelarray count]; departmentitem++)
+        {
+            [self showdepartment:[[sortlabelarray objectAtIndex:departmentitem] objectForKey:@"department"] rangekeyword:[[sortlabelarray objectAtIndex:departmentitem] objectForKey:@"rangekeyword"] withoutkeyword:[[sortlabelarray objectAtIndex:departmentitem] objectForKey:@"withoutkeyword"] withoutanother:[[sortlabelarray objectAtIndex:departmentitem] objectForKey:@"withoutanother"] picture:[[sortlabelarray objectAtIndex:departmentitem] objectForKey:@"picture"] name:departmentname];
+        }
     }
     Contacts *contactclass = [[Contacts alloc] init];
     contacts = [[NSMutableArray alloc] init];
@@ -208,7 +204,7 @@
 {
     if ([allname rangeOfString:keyword].location == NSNotFound && [name rangeOfString:keyword].location != NSNotFound && [name rangeOfString:without].location == NSNotFound && [name rangeOfString:without2].location == NSNotFound) {
         CNMutableGroup *group = [[CNMutableGroup alloc]init];
-        group.name = [NSString stringWithFormat:@"M5-%@",pic];
+        group.name = [NSString stringWithFormat:@"50-%@",pic];
         allname = [NSString stringWithFormat:@"%@,%@",allname,name];
         Checklist *list;
         list = [[Checklist alloc] init];
@@ -234,6 +230,8 @@
             if ([item.name rangeOfString:@" "].location != NSNotFound){
                 item.name = [[item.name stringByReplacingOccurrencesOfString:@" " withString:@""]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             }
+            
+            
             
             if ([bmname rangeOfString:keyword].location != NSNotFound && [bmname rangeOfString:without].location == NSNotFound && [bmname rangeOfString:without2].location == NSNotFound){
                 
@@ -348,8 +346,8 @@
                     item.subo = [item.subo stringByReplacingOccurrencesOfString:@"\n" withString:@"/"];
                 }
                 
-                if (![actual[j][10] isEqualToString:@""]) {
-                    item.subo = [NSString stringWithFormat:@"(WKS)%@/(WNH)%@",item.subo,[actual[j][11]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+                if (![actual[j][10] isEqualToString:@""] && ![actual[j][10] isEqualToString:@"/"]) {
+                    item.subo = [NSString stringWithFormat:@"(WKS)%@/(WNH)%@",item.subo,[actual[j][10]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
                 }
                 
                 //分机
@@ -364,11 +362,11 @@
                     item.fenji = [item.fenji stringByReplacingOccurrencesOfString:@"\n" withString:@"/"];
                 }
                 
-                if (![actual[j][6] isEqualToString:@""]) {
+                if (![actual[j][6] isEqualToString:@""] && ![actual[j][6] isEqualToString:@"/"]) {
                     if ([item.fenji isEqualToString:@""]) {
-                        item.fenji = [NSString stringWithFormat:@"(WNH)%@",[actual[j][7]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+                        item.fenji = [NSString stringWithFormat:@"(WNH)%@",[actual[j][6]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
                     }else{
-                         item.fenji = [NSString stringWithFormat:@"(WKS)%@/(WNH)%@",item.fenji,[actual[j][7]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+                         item.fenji = [NSString stringWithFormat:@"(WKS)%@/(WNH)%@",item.fenji,[actual[j][6]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
                     }
                 }
                 

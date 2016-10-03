@@ -124,7 +124,8 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:name message:[NSString stringWithFormat:@"%@\n所在群組\"%@\"",contact.nickname,contact.departmentName] preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *callaction = [UIAlertAction actionWithTitle:[NSString stringWithFormat:@"📞:%@",phonenumber] style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
         if (phonenumber.length > 6) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",phonenumber]]];
+            //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",phonenumber]]];
+            NSLog(@"call phonenumber");
         }
     }];
     UIAlertAction *deleteaction = [UIAlertAction actionWithTitle:@"刪除（此操作不可撤銷）" style: UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
