@@ -84,16 +84,19 @@
 - (NSString *)returnLocalContents{
     [self clearAllNotice];
     //[self noticeTop:@"無網絡連接，為您加載本地數據" autoClear:YES];
-    NSString *localcontentsTPE = [[NSBundle mainBundle] pathForResource:@"TPE" ofType:@"csv"];
-    NSString *contentsTPE = [[NSString alloc] initWithContentsOfFile:localcontentsTPE encoding:NSUTF8StringEncoding error:nil];
-    NSString *localcontentsWKS = [[NSBundle mainBundle] pathForResource:@"WKS" ofType:@"csv"];
-    NSString *contentsWKS = [[NSString alloc] initWithContentsOfFile:localcontentsWKS encoding:NSUTF8StringEncoding error:nil];
     NSString *contents = [[NSString alloc]init];
-    if ([contentsTPE isEqualToString:@""]||[contentsWKS isEqualToString:@""]) {
-        contents = @"";
-    }else{
-        contents = [NSString stringWithFormat:@"%@\n%@",contentsTPE,contentsWKS];
-    }
+    
+//    NSString *localcontentsTPE = [[NSBundle mainBundle] pathForResource:@"TPE" ofType:@"csv"];
+//    NSString *contentsTPE = [[NSString alloc] initWithContentsOfFile:localcontentsTPE encoding:NSUTF8StringEncoding error:nil];
+//    NSString *localcontentsWKS = [[NSBundle mainBundle] pathForResource:@"WKS" ofType:@"csv"];
+//    NSString *contentsWKS = [[NSString alloc] initWithContentsOfFile:localcontentsWKS encoding:NSUTF8StringEncoding error:nil];
+//    if ([contentsTPE isEqualToString:@""]||[contentsWKS isEqualToString:@""]) {
+//        contents = @"";
+//    }else{
+//        contents = [NSString stringWithFormat:@"%@\n%@",contentsTPE,contentsWKS];
+//    }
+    NSString *localcontents = [[NSBundle mainBundle] pathForResource:@"All" ofType:@"csv"];
+    contents = [[NSString alloc] initWithContentsOfFile:localcontents encoding:NSUTF8StringEncoding error:nil];
     return contents;
 }
 
@@ -103,17 +106,17 @@
     NSDictionary *dic = [ NSDictionary dictionaryWithContentsOfFile:[docPath stringByAppendingPathComponent:@"setting.plist"]];
     NSString *ip = [dic objectForKey:@"ip"];
     //将云端csv保存在本地
-    //NSURL *newURL =[NSURL URLWithString :@"http://7xq6p6.com1.z0.glb.clouddn.com/WKS.csv"];
+    //NSURL *newURL =[NSURL URLWithString :@"http://7xrqwh.com1.z0.glb.clouddn.com/All.csv"];
     //NSURL *newURL =[NSURL URLWithString :@"http://127.0.0.1/WKS.csv"];
     
     __block NSString *contentsTPE = [[NSString alloc]init];
-    __block NSString *contentsWKS = [[NSString alloc]init];
+    //__block NSString *contentsWKS = [[NSString alloc]init];
     //先创建一个semaphore
     dispatch_semaphore_t semaphoreTPE = dispatch_semaphore_create(0);
-    dispatch_semaphore_t semaphoreWKS = dispatch_semaphore_create(0);
-    
-    NSURL *urlTPE =[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/M5/TPE.csv",ip]];
-    NSURL *urlWKS =[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/M5/WKS.csv",ip]];
+    //dispatch_semaphore_t semaphoreWKS = dispatch_semaphore_create(0);
+
+    NSURL *urlTPE =[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/All.csv",ip]];
+    //NSURL *urlWKS =[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/M5/WKS.csv",ip]];
     //注意！准备 CSV 的格式为每行：(部門中文名),(序號),部門,(IDL/DL),姓名,英文名,工號,(職務),分機,手機,短號,速撥,\n
     //总共12个逗号，内容可有可无但必须对应，主要是老板那个 CSV 的档需要增加两个空白列。
     
@@ -133,30 +136,31 @@
     //等待执行，不会占用资源
     dispatch_semaphore_wait(semaphoreTPE, DISPATCH_TIME_FOREVER);
     
-    NSURLRequest *theRequestWKS=[NSURLRequest requestWithURL:urlWKS
-                                                 cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                             timeoutInterval:2.0];
-    [[[NSURLSession sharedSession]dataTaskWithRequest:theRequestWKS completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error){
-        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-        //NSLog(@"response status code: %ld", (long)[httpResponse statusCode]);
-        if ([httpResponse statusCode] == 200) {
-            NSString * responsedata = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-            contentsWKS = responsedata;
-        }
-        //发出已完成的信号
-        dispatch_semaphore_signal(semaphoreWKS);
-    }]resume];
-    //等待执行，不会占用资源
-    dispatch_semaphore_wait(semaphoreWKS, DISPATCH_TIME_FOREVER);
+//    NSURLRequest *theRequestWKS=[NSURLRequest requestWithURL:urlWKS
+//                                                 cachePolicy:NSURLRequestUseProtocolCachePolicy
+//                                             timeoutInterval:2.0];
+//    [[[NSURLSession sharedSession]dataTaskWithRequest:theRequestWKS completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error){
+//        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+//        //NSLog(@"response status code: %ld", (long)[httpResponse statusCode]);
+//        if ([httpResponse statusCode] == 200) {
+//            NSString * responsedata = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//            contentsWKS = responsedata;
+//        }
+//        //发出已完成的信号
+//        dispatch_semaphore_signal(semaphoreWKS);
+//    }]resume];
+//    //等待执行，不会占用资源
+//    dispatch_semaphore_wait(semaphoreWKS, DISPATCH_TIME_FOREVER);
     //NSURL *newURL =[NSURL URLWithString :@"http://10.42.53.11/WKS.csv"];
     //NSString *contents = [[NSString alloc]initWithContentsOfURL:newURL encoding:NSUTF8StringEncoding error:nil];
     //NSLog(@"%@",contents);
     NSString *contents = [[NSString alloc]init];
-    if ([contentsTPE isEqualToString:@""]||[contentsWKS isEqualToString:@""]) {
-        contents = @"";
-    }else{
-        contents = [NSString stringWithFormat:@"%@\n%@",contentsTPE,contentsWKS];
-    }
+    contents = contentsTPE;
+//    if ([contentsTPE isEqualToString:@""]||[contentsWKS isEqualToString:@""]) {
+//        contents = @"";
+//    }else{
+//        contents = [NSString stringWithFormat:@"%@\n%@",contentsTPE,contentsWKS];
+//    }
     return contents;
 }
 
@@ -181,21 +185,18 @@
     allname = @"";
     
     for (int i = 0; i < [actual count]; i++) {
-        NSString* departmentname = actual[i][2];
+        NSString* departmentname = actual[i][1];
         //因为表格内 function 信息有误，确保正确的话可以重写一个通用方法。
-        [self showdepartment:@"崑山管理室" rangekeyword:@"M50" withoutkeyword:@"M50B" withoutanother:@"nil" picture:@"M5" name:departmentname];
-        [self showdepartment:@"經營分析室" rangekeyword:@"M50B" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"BA" name:departmentname];
-        [self showdepartment:@"業務管理處" rangekeyword:@"M5A" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"AM" name:departmentname];
-        [self showdepartment:@"流程暨專案經理處" rangekeyword:@"M5C" withoutkeyword:@"M5C2" withoutanother:@"M5C3" picture:@"OPM" name:departmentname];
-        [self showdepartment:@"流程暨專案經理處" rangekeyword:@"M5C2" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"MPM" name:departmentname];
-        [self showdepartment:@"流程暨專案經理處" rangekeyword:@"M5C3" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"FPM" name:departmentname];
-        [self showdepartment:@"產品經理處" rangekeyword:@"M5P" withoutkeyword:@"M5PC" withoutanother:@"nil" picture:@"EPM" name:departmentname];
-        [self showdepartment:@"產品經理處" rangekeyword:@"M5PC" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"PCC" name:departmentname];
-        [self showdepartment:@"產品設計處" rangekeyword:@"M5D" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"PD" name:departmentname];
-        [self showdepartment:@"硬體開發設計處" rangekeyword:@"M5E" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"EE" name:departmentname];
-        [self showdepartment:@"無線技術研發處" rangekeyword:@"M5R" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"RF" name:departmentname];
-        [self showdepartment:@"軟體研發處" rangekeyword:@"M5S" withoutkeyword:@"M5SW" withoutanother:@"nil" picture:@"SW" name:departmentname];
-        [self showdepartment:@"智能裝置軟件測試部" rangekeyword:@"M5SW" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"WGT" name:departmentname];
+        [self showdepartment:@"智能裝置事業處" rangekeyword:@"500000" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"M5" name:departmentname];
+        [self showdepartment:@"流程暨專案經理處" rangekeyword:@"50C" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"OPM" name:departmentname];
+        [self showdepartment:@"經營分析室" rangekeyword:@"500B00" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"BA" name:departmentname];
+        [self showdepartment:@"業務管理處" rangekeyword:@"50A" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"AM" name:departmentname];
+        [self showdepartment:@"產品經理處" rangekeyword:@"50P" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"EPM" name:departmentname];
+        [self showdepartment:@"產品設計處" rangekeyword:@"50D" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"PD" name:departmentname];
+        [self showdepartment:@"硬體開發設計處" rangekeyword:@"50E" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"EE" name:departmentname];
+        [self showdepartment:@"無線技術研發處" rangekeyword:@"50R" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"RF" name:departmentname];
+        [self showdepartment:@"軟體研發處" rangekeyword:@"50S" withoutkeyword:@"50SW" withoutanother:@"nil" picture:@"SW" name:departmentname];
+        [self showdepartment:@"智能裝置軟件測試部" rangekeyword:@"50SW" withoutkeyword:@"nil" withoutanother:@"nil" picture:@"WGT" name:departmentname];
     }
     Contacts *contactclass = [[Contacts alloc] init];
     contacts = [[NSMutableArray alloc] init];
@@ -216,12 +217,12 @@
         [self.dataModel.lists addObject:list];
         list.iconName = pic;
         for (int j = 0; j < [actual count]; j++) {
-            NSString* bmname = actual[j][2];
+            NSString* bmname = actual[j][1];
             ChecklistItem *item;
             item = [[ChecklistItem alloc] init];
             
             //中文名
-            item.name = [actual[j][3] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            item.name = [actual[j][2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             if ([item.name rangeOfString:@"（"].location != NSNotFound){
                 NSRange range = [item.name rangeOfString:@"（"];
                 item.name = [[item.name substringToIndex:range.location]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
@@ -237,7 +238,7 @@
             if ([bmname rangeOfString:keyword].location != NSNotFound && [bmname rangeOfString:without].location == NSNotFound && [bmname rangeOfString:without2].location == NSNotFound){
                 
                 //英文名
-                item.engname = [actual[j][4] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                item.engname = [actual[j][3] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                 if ([item.engname isEqualToString:@"/"]) {
                     item.engname = @"DL";
                 }
@@ -253,7 +254,7 @@
                 
                 //手机号
                 NSString *allphonenumber = @"";
-                allphonenumber = [NSString stringWithFormat:@"%@/%@/%@",[actual[j][8]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]],[actual[j][9]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]],[actual[j][13]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+                allphonenumber = [NSString stringWithFormat:@"%@/%@/%@",[actual[j][7]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]],[actual[j][8]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]],[actual[j][14]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
                 //allphonenumber = [actual[j][8]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                 //NSLog(@"%@",item.phonenumber);
                 if ([allphonenumber rangeOfString:@"-"].location != NSNotFound){
@@ -324,16 +325,16 @@
                 }
                 
                 //短号
-                item.shortnumber = [actual[j][12]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                item.shortnumber = [actual[j][11]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                 if ([item.shortnumber isEqualToString:@"/"] || [item.shortnumber isEqualToString:@"无"] || [item.shortnumber isEqualToString:@""]) {
                     item.shortnumber = nil;
                 }
                 
                 //部门/工号
-                item.departmentnumber = [NSString stringWithFormat:@"%@/%@",actual[j][2],actual[j][5]];
+                item.departmentnumber = [NSString stringWithFormat:@"%@/%@",actual[j][1],actual[j][4]];
                 
                 //速拨
-                item.subo = [actual[j][10]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                item.subo = [actual[j][9]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                 if ([item.subo isEqualToString:@"/"] || [item.subo isEqualToString:@"无"]) {
                     item.subo = @"";
                 }
@@ -347,12 +348,12 @@
                     item.subo = [item.subo stringByReplacingOccurrencesOfString:@"\n" withString:@"/"];
                 }
                 
-                if (![actual[j][11] isEqualToString:@""]) {
+                if (![actual[j][10] isEqualToString:@""]) {
                     item.subo = [NSString stringWithFormat:@"(WKS)%@/(WNH)%@",item.subo,[actual[j][11]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
                 }
                 
                 //分机
-                item.fenji = [actual[j][6]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                item.fenji = [actual[j][5]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                 if ([item.fenji isEqualToString:@"/"] || [item.fenji isEqualToString:@"无"]) {
                     item.fenji = @"";
                 }
@@ -363,7 +364,7 @@
                     item.fenji = [item.fenji stringByReplacingOccurrencesOfString:@"\n" withString:@"/"];
                 }
                 
-                if (![actual[j][7] isEqualToString:@""]) {
+                if (![actual[j][6] isEqualToString:@""]) {
                     if ([item.fenji isEqualToString:@""]) {
                         item.fenji = [NSString stringWithFormat:@"(WNH)%@",[actual[j][7]stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
                     }else{

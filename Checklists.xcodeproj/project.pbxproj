@@ -16,6 +16,7 @@
 		E23772B21C7DD25A00681DEA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23772B11C7DD25A00681DEA /* CoreGraphics.framework */; };
 		E23772B51C7DD28400681DEA /* PXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E23772B41C7DD28400681DEA /* PXAlertView.m */; };
 		E240515A1B1D8E8700E6D24A /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E24051591B1D8E8700E6D24A /* ItemDetailViewController.m */; };
+		E25DF5811DA1FE3300ECE744 /* All.csv in Resources */ = {isa = PBXBuildFile; fileRef = E25DF5801DA1FE3300ECE744 /* All.csv */; };
 		E264F5371C8708BF000F4A4C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E264F5361C8708BF000F4A4C /* QuartzCore.framework */; };
 		E26654BD1C83FEA2001147ED /* M5.html in Resources */ = {isa = PBXBuildFile; fileRef = E26654BC1C83FEA2001147ED /* M5.html */; };
 		E26CB0611B26C2F5003F910C /* IconPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26CB0601B26C2F5003F910C /* IconPickerViewController.m */; };
@@ -29,8 +30,6 @@
 		E2A474E31B16C22500AE5AED /* ChecklistItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A474E21B16C22500AE5AED /* ChecklistItem.m */; };
 		E2B4B3701C85359F003F9BD4 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B4B36F1C85359F003F9BD4 /* SettingViewController.m */; };
 		E2B8B7781C84612500152EF1 /* main.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2B8B7771C84612500152EF1 /* main.plist */; };
-		E2CC4AEB1CC8AB9D00619F75 /* TPE.csv in Resources */ = {isa = PBXBuildFile; fileRef = E2CC4AE91CC8AB9D00619F75 /* TPE.csv */; };
-		E2CC4AEC1CC8AB9D00619F75 /* WKS.csv in Resources */ = {isa = PBXBuildFile; fileRef = E2CC4AEA1CC8AB9D00619F75 /* WKS.csv */; };
 		E2DEE81D1C54E38B00769A5D /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DEE81C1C54E38B00769A5D /* SwiftNotice.swift */; };
 		E2E2E8A51C55CBE600F2BEF9 /* NirKxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E2E8A41C55CBE600F2BEF9 /* NirKxMenu.m */; };
 		E2EBEA1C1C8E616300B234F2 /* ContactsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EBEA1B1C8E616300B234F2 /* ContactsListViewController.m */; };
@@ -59,6 +58,7 @@
 		E23772B41C7DD28400681DEA /* PXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXAlertView.m; sourceTree = "<group>"; };
 		E24051581B1D8E8700E6D24A /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
 		E24051591B1D8E8700E6D24A /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
+		E25DF5801DA1FE3300ECE744 /* All.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = All.csv; sourceTree = "<group>"; };
 		E264F5361C8708BF000F4A4C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E26654BC1C83FEA2001147ED /* M5.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = M5.html; sourceTree = "<group>"; };
 		E26CB05F1B26C2F5003F910C /* IconPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconPickerViewController.h; sourceTree = "<group>"; };
@@ -81,8 +81,6 @@
 		E2B4B36E1C85359F003F9BD4 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		E2B4B36F1C85359F003F9BD4 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		E2B8B7771C84612500152EF1 /* main.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = main.plist; sourceTree = "<group>"; };
-		E2CC4AE91CC8AB9D00619F75 /* TPE.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TPE.csv; sourceTree = "<group>"; };
-		E2CC4AEA1CC8AB9D00619F75 /* WKS.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WKS.csv; sourceTree = "<group>"; };
 		E2DEE81B1C54E38A00769A5D /* Checklists-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Checklists-Bridging-Header.h"; sourceTree = "<group>"; };
 		E2DEE81C1C54E38B00769A5D /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		E2E2E8A31C55CBE600F2BEF9 /* NirKxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NirKxMenu.h; sourceTree = "<group>"; };
@@ -215,8 +213,7 @@
 				E2FED6F41B141CB3002FD79F /* Images.xcassets */,
 				E2FED6F61B141CB3002FD79F /* LaunchScreen.xib */,
 				E2B8B7771C84612500152EF1 /* main.plist */,
-				E2CC4AE91CC8AB9D00619F75 /* TPE.csv */,
-				E2CC4AEA1CC8AB9D00619F75 /* WKS.csv */,
+				E25DF5801DA1FE3300ECE744 /* All.csv */,
 				E26654BC1C83FEA2001147ED /* M5.html */,
 				E2FED6E81B141CB3002FD79F /* Info.plist */,
 				E2FED6E91B141CB3002FD79F /* main.m */,
@@ -286,8 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E26654BD1C83FEA2001147ED /* M5.html in Resources */,
-				E2CC4AEB1CC8AB9D00619F75 /* TPE.csv in Resources */,
-				E2CC4AEC1CC8AB9D00619F75 /* WKS.csv in Resources */,
+				E25DF5811DA1FE3300ECE744 /* All.csv in Resources */,
 				E2FED6F31B141CB3002FD79F /* Main.storyboard in Resources */,
 				E2FED6F81B141CB3002FD79F /* LaunchScreen.xib in Resources */,
 				E2B8B7781C84612500152EF1 /* main.plist in Resources */,

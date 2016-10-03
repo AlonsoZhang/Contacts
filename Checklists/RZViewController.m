@@ -159,7 +159,7 @@ NSString* const kRZTouchIdLoggedInUser                         = @"loggedInUser"
         NSMutableDictionary *newDic = [[NSMutableDictionary alloc]init];
         NSString *psw = @"123";
         [newDic setValue:psw forKey:@"admin"];
-        NSString *ip =@"10.42.53.99";
+        NSString *ip =@"7xrqwh.com1.z0.glb.clouddn.com";
         [newDic setValue:ip forKey:@"ip"];
         kRZTouchIDDefaultPassword = psw;
         [newDic writeToFile:[docPath stringByAppendingPathComponent:@"setting.plist"] atomically:YES];
