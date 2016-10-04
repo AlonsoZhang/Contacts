@@ -614,7 +614,7 @@
     //内容配置
     NSArray *menuItems =
     @[
-      [KxMenuItem menuItem:@"一鍵導入M5完整通訊錄"
+      [KxMenuItem menuItem:@"一鍵導入50完整通訊錄"
                      image:[UIImage imageNamed:@"action_icon"]
                     target:self
                     action:@selector(addAllContacts)],

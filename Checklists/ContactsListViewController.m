@@ -124,7 +124,7 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:name message:[NSString stringWithFormat:@"%@\n所在群組\"%@\"",contact.nickname,contact.departmentName] preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *callaction = [UIAlertAction actionWithTitle:[NSString stringWithFormat:@"📞:%@",phonenumber] style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
         if (phonenumber.length > 6) {
-            //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",phonenumber]]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",phonenumber]] options:@{} completionHandler:nil];
             NSLog(@"call phonenumber");
         }
     }];
