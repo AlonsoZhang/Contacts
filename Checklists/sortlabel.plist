@@ -6,7 +6,7 @@
 		<key>department</key>
 		<string>智能裝置事業處</string>
 		<key>rangekeyword</key>
-		<string>500000</string>
+		<string>0000</string>
 		<key>withoutkeyword</key>
 		<string></string>
 		<key>withoutanother</key>
@@ -18,7 +18,7 @@
 		<key>department</key>
 		<string>崑山管理室</string>
 		<key>rangekeyword</key>
-		<string>500K00</string>
+		<string>510K00</string>
 		<key>withoutkeyword</key>
 		<string></string>
 		<key>withoutanother</key>
@@ -30,7 +30,7 @@
 		<key>department</key>
 		<string>流程暨專案經理處</string>
 		<key>rangekeyword</key>
-		<string>50C</string>
+		<string>51C</string>
 		<key>withoutkeyword</key>
 		<string></string>
 		<key>withoutanother</key>
@@ -66,7 +66,7 @@
 		<key>department</key>
 		<string>產品經理處</string>
 		<key>rangekeyword</key>
-		<string>50P</string>
+		<string>51P</string>
 		<key>withoutkeyword</key>
 		<string></string>
 		<key>withoutanother</key>
@@ -78,7 +78,7 @@
 		<key>department</key>
 		<string>產品設計處</string>
 		<key>rangekeyword</key>
-		<string>50D</string>
+		<string>51D</string>
 		<key>withoutkeyword</key>
 		<string></string>
 		<key>withoutanother</key>
@@ -90,7 +90,7 @@
 		<key>department</key>
 		<string>硬體開發設計處</string>
 		<key>rangekeyword</key>
-		<string>50E</string>
+		<string>51E</string>
 		<key>withoutkeyword</key>
 		<string></string>
 		<key>withoutanother</key>
@@ -102,7 +102,7 @@
 		<key>department</key>
 		<string>無線技術研發處</string>
 		<key>rangekeyword</key>
-		<string>50R</string>
+		<string>51R</string>
 		<key>withoutkeyword</key>
 		<string></string>
 		<key>withoutanother</key>
@@ -114,9 +114,9 @@
 		<key>department</key>
 		<string>軟體研發處</string>
 		<key>rangekeyword</key>
-		<string>50S</string>
+		<string>51S</string>
 		<key>withoutkeyword</key>
-		<string>50SW</string>
+		<string>51SW</string>
 		<key>withoutanother</key>
 		<string></string>
 		<key>picture</key>
@@ -126,7 +126,7 @@
 		<key>department</key>
 		<string>智能裝置軟件測試部</string>
 		<key>rangekeyword</key>
-		<string>50SW</string>
+		<string>51SW</string>
 		<key>withoutkeyword</key>
 		<string></string>
 		<key>withoutanother</key>

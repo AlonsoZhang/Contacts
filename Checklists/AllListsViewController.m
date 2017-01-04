@@ -95,7 +95,7 @@
 //    }else{
 //        contents = [NSString stringWithFormat:@"%@\n%@",contentsTPE,contentsWKS];
 //    }
-    NSString *localcontents = [[NSBundle mainBundle] pathForResource:@"All" ofType:@"csv"];
+    NSString *localcontents = [[NSBundle mainBundle] pathForResource:@"51" ofType:@"csv"];
     contents = [[NSString alloc] initWithContentsOfFile:localcontents encoding:NSUTF8StringEncoding error:nil];
     return contents;
 }
@@ -115,11 +115,10 @@
     dispatch_semaphore_t semaphoreTPE = dispatch_semaphore_create(0);
     //dispatch_semaphore_t semaphoreWKS = dispatch_semaphore_create(0);
 
-    NSURL *urlTPE =[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/All.csv",ip]];
+    NSURL *urlTPE =[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/51.csv",ip]];
     //NSURL *urlWKS =[NSURL URLWithString:[NSString stringWithFormat:@"http://%@/M5/WKS.csv",ip]];
     //注意！准备 CSV 的格式为每行：(部門中文名),(序號),部門,(IDL/DL),姓名,英文名,工號,(職務),分機,手機,短號,速撥,\n
     //总共12个逗号，内容可有可无但必须对应，主要是老板那个 CSV 的档需要增加两个空白列。
-    
     NSURLRequest *theRequestTPE=[NSURLRequest requestWithURL:urlTPE
                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
                                           timeoutInterval:2.0];
@@ -204,7 +203,7 @@
 {
     if ([allname rangeOfString:keyword].location == NSNotFound && [name rangeOfString:keyword].location != NSNotFound && [name rangeOfString:without].location == NSNotFound && [name rangeOfString:without2].location == NSNotFound) {
         CNMutableGroup *group = [[CNMutableGroup alloc]init];
-        group.name = [NSString stringWithFormat:@"50-%@",pic];
+        group.name = [NSString stringWithFormat:@"51-%@",pic];
         allname = [NSString stringWithFormat:@"%@,%@",allname,name];
         Checklist *list;
         list = [[Checklist alloc] init];
@@ -614,7 +613,7 @@
     //内容配置
     NSArray *menuItems =
     @[
-      [KxMenuItem menuItem:@"一鍵導入50完整通訊錄"
+      [KxMenuItem menuItem:@"一鍵導入51完整通訊錄"
                      image:[UIImage imageNamed:@"action_icon"]
                     target:self
                     action:@selector(addAllContacts)],
