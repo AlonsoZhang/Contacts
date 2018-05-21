@@ -8,7 +8,7 @@
 
 #import "ItemAddContactsViewController.h"
 #import "ChecklistItem.h"
-#import "Checklists-swift.h"
+#import "Checklists-Swift.h"
 #import "NirKxMenu.h"
 
 

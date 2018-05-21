@@ -7,7 +7,7 @@
 //
 
 #import "SettingViewController.h"
-#import "Checklists-swift.h"
+#import "Checklists-Swift.h"
 
 @interface SettingViewController ()
 

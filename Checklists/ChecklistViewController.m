@@ -10,7 +10,7 @@
 #import "ChecklistItem.h"
 #import "Checklist.h"
 #import "NirKxMenu.h"
-#import "Checklists-swift.h"
+#import "Checklists-Swift.h"
 
 @interface ChecklistViewController ()
 

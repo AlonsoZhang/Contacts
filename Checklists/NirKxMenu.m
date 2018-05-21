@@ -328,7 +328,7 @@ typedef enum {
                          self.frame = toFrame;
                          
                      } completion:^(BOOL completed) {
-                         _contentView.hidden = NO;
+                         self->_contentView.hidden = NO;
                      }];
     
 }

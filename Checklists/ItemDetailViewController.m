@@ -8,7 +8,7 @@
 
 #import "ItemDetailViewController.h"
 #import "ChecklistItem.h"
-#import "Checklists-swift.h"
+#import "Checklists-Swift.h"
 
 @interface ItemDetailViewController ()
 

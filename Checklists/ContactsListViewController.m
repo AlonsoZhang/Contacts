@@ -7,7 +7,7 @@
 //
 
 #import "ContactsListViewController.h"
-#import "Checklists-swift.h"
+#import "Checklists-Swift.h"
 
 @interface ContactsListViewController ()
 
@@ -38,7 +38,7 @@
                     NSString * phoneNum = [[NSString alloc]init];
                     phoneNum = [self getPhoneNum:ct];
                     if([contactscsv rangeOfString:phoneNum].location == NSNotFound){
-                        [getContact addObject:ct];
+                        [self->getContact addObject:ct];
                     }
                     [self.tableView reloadData];
                 }
@@ -137,7 +137,7 @@
         [saveRequest deleteContact:mutableContact];
         CNContactStore * store = [[CNContactStore alloc]init];
         [store executeSaveRequest:saveRequest error:nil];
-        [getContact removeObject:contact];
+        [self->getContact removeObject:contact];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [tableView reloadData];
     }];
@@ -161,12 +161,12 @@
                              } else {
                                  //初始化方法
                                  CNSaveRequest * saveRequest = [[CNSaveRequest alloc]init];
-                                 for (NSUInteger i = [getContact count]; i > 0; i--) {
-                                     CNContact *contact = getContact[i - 1];
+                                 for (NSUInteger i = [self->getContact count]; i > 0; i--) {
+                                     CNContact *contact = self->getContact[i - 1];
                                      //删除联系人
                                      CNMutableContact * mutableContact = [contact mutableCopy];
                                      [saveRequest deleteContact:mutableContact];
-                                     [getContact removeObject:contact];
+                                     [self->getContact removeObject:contact];
                                  }
                                  CNContactStore * store = [[CNContactStore alloc]init];
                                  [store executeSaveRequest:saveRequest error:nil];

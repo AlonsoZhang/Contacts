@@ -11,7 +11,7 @@
 #import "ChecklistViewController.h"
 #import "ChecklistItem.h"
 #import "DataModel.h"
-#import "Checklists-swift.h"
+#import "Checklists-Swift.h"
 #import "NirKxMenu.h"
 #import "RZTouchID.h"
 #import "AppDelegate.h"
